@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Footer from './components/Footer';
+import GreenLightRedLight from './components/GreenLightRedLight';
+import Header from './components/Header';
+import GmaeRule from './Pages/GmaeRule';
+import LeaderBoard from './Pages/LeaderBoard'
+import { Routes, Route } from "react-router-dom";
 
 function App() {
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<GreenLightRedLight />} />
+        <Route path="/game-rule" element={<GmaeRule />} />
+        <Route path="/leader-board" element={<LeaderBoard/>} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
